@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.ico">
+    <title>Next CRM</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" /> 
+
+    <link href="../../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- chartist CSS
+    <link href="../../assets/plugins/chartist-js/dist/chartist.min.css" rel="stylesheet">
+    <link href="../../assets/plugins/chartist-js/dist/chartist-init.css" rel="stylesheet">
+    
+
+    <link href="../../assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css" rel="stylesheet">
+    <!--This page css - Morris CSS 
+    <link href="../../assets/plugins/c3-master/c3.min.css" rel="stylesheet">-->
+    <!-- Custom CSS -->
+    <link href="../../css/style.css" rel="stylesheet">
+    <!-- You can change the theme colors from here -->
+    <link href="../../css/colors/blue.css" id="theme" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../js/vue-form-generator/vfg.css" />
+
+
+    <link href="../../css/todos.css" id="theme" rel="stylesheet">
+</head>
+
+<body 
+    style="height: 900px"
+    id="localScope" class="fix-header fix-sidebar card-no-border">
+    <div id="div-profile" class="container-fluid"> 
+    <!-- ============================================================== -->
+                <!-- Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <div class="row page-titles">
+                    <div class="col-md-5 col-8 align-self-center">
+                        <h3 class="text-themecolor"> {{ formdata.title }} </h3>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)"> {{ formdata.path }} </a></li>
+                            <li class="breadcrumb-item active"> {{ model.name }}</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="col-md-7 col-sm-4 col-xs-12 align-self-center">
+
+                        <div class="button-wrapper">
+
+                            
+                            <button
+                                type="button"
+                                v-on:click="saveForm( model, entityname, formdata.formback, schema )"
+                                class="btn waves-effect waves-light btn-success pull-right "
+                                >Salvar</button>
+
+
+                            <button
+                                v-if="model.id"
+                                v-on:click="removeRecord( entityname, model.id, formdata.formback )"
+                                type="button"
+                                class="btn waves-effect waves-light btn-danger pull-right "
+                                >Excluir</button>
+
+                            <button 
+                                type="button"
+                                v-on:click="openForm( formdata.formback )" 
+                                class="btn waves-effect waves-light btn-default btn-cancel pull-right ">Cancelar</button>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Column -->
+                    <div class="col-sm-12 col-form-edit">
+                        <div class="card">
+                            <vue-form-generator :schema="schema" :model="model" :options="formOptions"></vue-form-generator>
+
+                            <div 
+                                v-if="formdata.hasfile"
+                                class="input-file-div">
+                                <input 
+                                    @change="onSelectInputFile($event.target.name, $event.target.files, model)"
+                                    type="file"
+                                    name="file"
+                                    ref="file"
+                                    class="input-sm btn-success" />
+                                    
+                            </div>
+                            <!-- input-file -->
+
+                            <div class="formdata-image" v-if="model.file">
+                                <img 
+                                    v-bind:src="model.file.filepath" />
+                            </div>
+                            <!-- form data -->
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div v-for="detail in data.details"> 
+
+                    <div class="row row-table-list">
+                        <div class="col-sm-12">
+                            <div id="table-list">
+                                <v-card-title>
+                                    {{ detail.title }}
+                                    <button 
+                                        v-if="model.id"
+                                        v-on:click="openModal( detail, detail.modalid )"
+                                        class="btn btn-success new-detail">Novo registro</button>
+                                    <v-spacer></v-spacer>
+                                    <v-text-field
+                                    v-model="detail.searchmodel"
+                                    append-icon="mdi-magnify"
+                                    label="Buscar"
+                                    single-line
+                                    hide-details
+                                    ></v-text-field>
+                                </v-card-title>
+                                <v-data-table
+                                    v-model="detail.selected"
+                                        :headers="detail.headers"
+                                        :items="detail.list"
+                                        :items-per-page="5"
+                                        :search="detail.searchmodel"
+                                        single-select="false"
+                                        item-key="name"
+                                        class="elevation-1"
+                                    >
+                                </v-data-table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- row -->
+
+                    <div 
+                        v-bind:id="detail.modalid" class="modal" tabindex="-1" role="dialog">
+
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title"> {{ detail.title }}</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <vue-form-generator 
+                                        :schema="detail.schema" 
+                                        :model="detail.model" 
+                                        :options="formOptions"></vue-form-generator>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                    <button 
+                                        v-on:click="saveModal( detail.model, detail.entityname, detail.formback, detail.schema, detail.modalid, entityname, model.id  )"
+                                        type="button" 
+                                        class="btn btn-success">Salvar</button>
+                                </div>
+                                </div>
+                            </div>
+                    </div>
+
+                </div>
+                <!-- end details -->
+
+                <!-- modal -->
+                <div id="detail-modal" class="modal" tabindex="-1" role="dialog">
+
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title"> {{ currentmodal.title }}</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <vue-form-generator 
+                                    :schema="currentmodal.schema" 
+                                    :model="currentmodal.model" 
+                                    :options="formOptions"></vue-form-generator>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                            </div>
+                        </div>
+                </div>
+
+                <!-- modal -->
+                
+
+                <!-- ============================================================== -->
+                <!-- End Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <!-- Row -->
+                
+                <!-- Row -->
+                <!-- Row -->
+               
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
+</div>
+
+
+
+<script src="../../assets/plugins/jquery/jquery.min.js"></script>
+<script src="../../js/bootstrap.min.js"></script>
+<script src="../../js/moment.min.js"></script>
+<script src="../../js/bootstrap-datetimepicker.js"></script>
+
+
+<script src="../../js/vue-2-6-11.js"></script>
+<script src="../../js/vuetify.js"></script>
+<script src="../../js/axios-0-19-2.js"></script>
+<script src="../../js/vue-form-generator/vfg.js"></script>
+<script src="../../js/next/fragment/edit.js"></script>
+
+
+
+
+</body>
+</html>

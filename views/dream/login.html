@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" href="../../img/site/favicon.png">
+    <title>Dream Investimentos</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../../css/crm/libs/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/crm/todos.css" id="theme" rel="stylesheet">
+    
+    <link rel="stylesheet" type="text/css" href="../../css/crm/login.css" />
+</head>
+
+<body id="localScope" class="fix-header fix-sidebar card-no-border">
+    
+    
+    <div class="container">
+
+        <form 
+            class="form-login"
+            action="/auth" method="POST">
+            <div class="row">
+                <div class="col-sm-12 col-login">
+
+                    <div class="row logo-login">
+                        <div class="col-sm-12">
+                            <img src="../../img/crm/logo.png" alt="logo" />
+                        </div>
+                    </div>
+                    <!-- logo -->
+                </div>
+            </div>
+            <!-- row -->
+
+            <div class="row row-user">
+
+                <div class="col-sm-4 label-username">
+                    <label>Usuário</label>
+                </div>
+                <div class="col-sm-8">
+                    <input 
+                        type="text"
+                        id="username"
+                        name="username"
+                        class="input-sm form-control" />
+                </div>
+            </div>
+            <!-- row -->
+
+            <div class="row">
+
+                <div class="col-sm-4 label-username">
+                    <label>Senha</label>
+                </div>
+                <div class="col-sm-8">
+                    <input 
+                        id="password"
+                        type="password"
+                        name="password"
+                        class="input-sm form-control" />
+                </div>
+            </div>
+            <!-- row -->
+
+            <div class="row">
+
+                <div class="col-sm-2">
+                </div>
+
+                <div class="col-sm-10 col-button">
+                    <button 
+                        id="btn-entrar"
+                        type="button"
+                        class="form-control btn btn-primary">Entrar</button>
+                </div>
+            </div>
+            <!-- row -->
+
+            <div class="row row-info">
+                <div class="col-12">
+
+                    <p id="message-error" style="color: red; text-align: center;"></p>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+    <script src="../../js/crm/libs/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="../../js/crm/libs/tether.min.js"></script>
+    <script src="../../js/crm/libs/bootstrap.min.js"></script>
+
+    <!-- ============================================================== -->
+    <!-- This page plugins -->
+    <!-- ============================================================== -->
+    <!-- chartist chart -->
+    
+    <!--c3 JavaScript 
+    <script src="../../assets/plugins/d3/d3.min.js"></script>
+    <script src="../../assets/plugins/c3-master/c3.min.js"></script>
+    -->
+   
+
+    <!-- Chart JS -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="../../js/crm/libs/notify.min.js"></script>
+    <script src="../../js/crm/libs/vue-2-6-11.js"></script>
+    <script src="../../js/crm/libs/vuetify.js"></script>
+    <script src="../../js/crm/libs/axios-0-19-2.js"></script>
+    <script src="../../js/crm/menu.js"></script>
+    <script src="../../js/external/external.js"></script>
+
+    <script>
+
+        var getUrlParams = function(){
+
+            var queryString = window.location.search;
+            var urlParams = new URLSearchParams(queryString);
+            return urlParams;
+        }
+
+        var submitForm = function(){
+
+            var username = $("#username").val();
+            var password = $("#password").val();
+
+            if( ! username ){
+                $.notify("É necessário preencher o campo usuário", "error");
+                return;
+            }
+
+            if( ! password ){
+                $.notify("É necessário preencher o campo senha", "error");
+                return;
+            }
+
+            $(".form-login").submit();
+        }
+
+        var keyUpSubmitForm  = function( e ){
+
+            if(e.keyCode == 13){
+                $(".form-login").submit();
+            }
+        }
+
+        $( document ).ready( function(){
+
+            $( document ).on("click", "#btn-entrar", submitForm );
+            $( document ).on("keyup", "#password", keyUpSubmitForm );
+
+
+            if( getUrlParams().get("message") == "user-notfound" ){
+                $("#message-error").html("Usuário não identificado no sistema");
+            }
+
+            if( getUrlParams().get("message") == "invalid-password" ){
+                $("#message-error").html("Senha incorreta");
+            }
+
+        });
+    </script>
+
+</body>
+
+</html>

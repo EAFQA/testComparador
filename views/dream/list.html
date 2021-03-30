@@ -1,0 +1,94 @@
+
+
+<div id="table-scope">
+<!-- ============================================================== -->
+                <!-- Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <div class="row page-titles">
+                    <div class="col-md-5 col-8 align-self-center">
+                        <h3 class="text-themecolor"> {{ vm.entitydata.title }} </h3>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                            	<a href="javascript:void(0)"> {{ vm.entitydata.path }} </a>
+                        	</li>
+                            <li class="breadcrumb-item active">Todos os registros</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="col-md-7 col-sm-4 col-xs-12 align-self-center list-div-button">
+
+                        <div class="button-wrapper">
+
+												                            
+                            <button
+                                type="button"
+								v-if="vm.entitydata.showbutton"
+                                v-on:click="vm.methods.openForm( vm.entitydata.formedit )"
+                                class="btn waves-effect waves-light btn-success pull-right"
+                                >Novo</button>
+
+
+                        </div>
+
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <!-- Row -->
+
+
+                <div class="row row-table-list">
+                	<div class="col-sm-12">
+                		<div id="table-list">
+												<v-card-title>
+        
+													<v-spacer></v-spacer>
+													<v-text-field
+													v-model="vm.searchmodel"
+													append-icon="mdi-magnify"
+													label="Buscar"
+													single-line
+													hide-details
+													></v-text-field>
+												</v-card-title>
+												<v-data-table
+													v-model="vm.entitydata.selected"
+														:headers="vm.entitydata.headers"
+														:items="vm.entitydata.list"
+														items-per-page="5"
+														:search="vm.searchmodel"
+														single-select="false"
+														disable-sort="true"
+														item-key="name"
+														class="elevation-1"
+													>
+														<template v-slot:top>
+																<v-toolbar flat color="white">
+																	
+																	<v-spacer></v-spacer>
+																</v-toolbar>
+															</template>
+															<template v-slot:item.actions="{ item }">
+
+																<button
+																	v-on:click="vm.methods.tableActions.editItem(item)"
+																	class="btn btn-sm btn-primary">
+																	Editar
+																</button>
+
+																<button
+																	v-on:click="vm.methods.tableActions.deleteItem(item)"
+																	class="btn btn-sm btn-danger">
+																	Remover
+																</button>
+
+															</template>
+													</v-data-table>
+						</div>
+                	</div>
+                </div>
+</div>

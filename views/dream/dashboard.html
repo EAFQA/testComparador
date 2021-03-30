@@ -1,0 +1,88 @@
+<!doctype>
+<html>
+<head>
+    <link href="../../css/crm/libs/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/crm/libs/vuetify.min.css" rel="stylesheet">
+
+    <link href="../../css/crm/todos.css" rel="stylesheet">
+    <link href="../../css/crm/dashboard.css" rel="stylesheet">
+</head>
+<body>
+    <div 
+        id="dashboard-scope"
+        class="container">
+
+        <div class="row row-panel">
+
+            <div class="col-12">
+                <h2>Bem Vindo <span>{{vm.username}}</span> </h2>
+            </div>
+
+            <div class="col-4">
+                <div class="dashboard-box generated-leads">
+                    <p>Lead's gerados HOTSITES</p>
+                    <p>{{vm.generatedleads}}</p>
+                </div>
+            </div>
+
+            <div class="col-4">
+
+                <div class="dashboard-box received-leads">
+                    <p>Meus Lead's Recebidos</p>
+                    <p>{{ vm.receivedleads }} </p>
+                </div>
+            </div>
+
+            <div class="col-4">
+
+                <div class="dashboard-box new-schedules">
+                    <p>Meus agendamentos</p>
+                    <p>{{ vm.scheduleleads }} </p>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="row resultlist">
+            <v-data-table
+                v-model="vm.entitydata.selected"
+                    :headers="vm.headers"
+                    :items="vm.resultlist"
+                    items-per-page="50"
+                    single-select="false"
+                    disable-sort="true"
+                    item-key="id"
+                    class="elevation-1"
+                >
+                    <template v-slot:top>
+                            <v-toolbar flat color="white">
+                                
+                                <v-spacer></v-spacer>
+                            </v-toolbar>
+                        </template>
+                        <template v-slot:item.actions="{ item }">
+
+                            <div v-if="item.callespecialist">
+                                <img src="../../img/crm/handsup.png" />
+                            </div>
+
+                            <button
+                                v-on:click="vm.methods.tableActions.editItem(item)"
+                                class="btn btn-sm btn-success">
+                                Editar
+                            </button>
+
+                        </template>
+
+                </v-data-table>
+        </div>
+    </div>
+
+    <script src="../../js/crm/libs/vue-2-6-11.js"></script>
+    <script src="../../js/crm/libs/vuetify.js"></script>
+    <script src="../../js/crm/libs/axios-0-19-2.js"></script>
+
+    <script src="../../js/crm/dashboard.js"></script>
+</body>
+</html>

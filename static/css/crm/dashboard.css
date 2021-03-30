@@ -1,0 +1,26 @@
+
+
+.generated-leads{
+    margin: 20px;
+    padding: 20px;
+    background: #a0a0e6;
+}
+
+.received-leads{
+    margin: 20px;
+    padding: 20px;
+    background: #aee6a0;
+}
+
+.new-schedules{
+    margin: 20px;
+    padding: 20px;
+    background: #e6a0a0;
+}
+
+.dashboard-box{
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+    font-weight: bold;
+}

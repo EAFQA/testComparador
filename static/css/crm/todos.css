@@ -1,0 +1,264 @@
+
+
+.sub-nav .nav-item{
+	padding-left: 20px
+}
+
+.breadcrumb-item a{
+}
+
+#sidebarnav .svg-collapse{
+	float: right;
+	margin-top: 7px;
+}
+
+.svg-up{
+	display: none;
+}
+
+.svg-down{
+	display: none;
+}
+
+.menu-link i{
+	margin-bottom: 5px;
+}
+
+.collapse{
+}
+
+.flex-column .nav-lik{
+	white-space: pre-line;
+}
+
+.button-wrapper button{
+	margin-left: 20px;
+	font-size: 14px;
+}
+
+.color-purple{
+}
+
+.row-table-list .col-sm-12{
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+}
+
+.row-table-list .col-sm-12 .v-data-table-header{
+	
+}
+
+.row-table-list .col-sm-12 .v-data-table-header span{
+	
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.row-table-list .col-sm-12 .v-data-table-header i{
+	
+}
+
+.row-table-list .col-sm-12 .v-data-footer__select,
+.row-table-list .col-sm-12 header{
+	display: none;
+}
+
+.row-table-list .col-sm-12 .edit-button{
+	color: #26c6da;
+}
+
+.row-table-list .col-sm-12 .remove-button{
+	color: #fc4b6c;
+}
+
+.row-table-list .col-sm-12 .v-data-table{
+	padding-left: 15px;
+    padding-top: 15px;
+}
+
+#table-scope{
+	padding-top: 20px;
+}
+
+.page-wrapper iframe{
+	width: 100%;
+    height: 100%;
+    border: none;
+    height: 900px;
+    margin-left: 10px;
+    margin-right: 20px;
+}
+
+.vue-form-generator fieldset{
+	margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.vue-form-generator fieldset .form-group label{
+	float: left;
+    width: 20%;
+    text-align: right;
+    padding-right: 30px;
+    padding-top: 5px;
+}
+
+.vue-form-generator fieldset .form-group input,
+.vue-form-generator fieldset .form-group select{
+	width: 90% !important;
+}
+
+.btn-cancel{
+	background: #e6e6e6 !important;
+    color: black;
+}
+
+.wrapper input[required=required]{
+	border-left: 2px solid red;
+}
+
+.notifyjs-bootstrap-success{
+	background: #26c6da !important;
+    color: white !important;
+    border: 2px solid #26c6da !important;
+}
+
+.notifyjs-bootstrap-success span{
+	font-weight: 400;
+}
+
+.notifyjs-bootstrap-error{
+	background: #EED3D7 !important;
+}
+
+.notifyjs-bootstrap-error span{
+	font-weight: 400;
+}
+
+.v-label{
+}
+
+.v-input__append-inner i{
+}
+
+.footer{
+	text-align: center;
+}
+
+.list-div-button{
+    text-align: right !important;
+}
+
+.list-div-button button {
+    color: white !important;
+}
+
+.btn-default{
+	background: #c5c4c4;
+}
+
+.message-widget h5{
+	color: #7460ee;
+}
+
+.text-right{
+	text-align: right !important;
+	padding-top: 15px !important;
+}
+
+.div-formgenerator input[required=required],
+.div-formgenerator select[required=required]{
+	border-left: 2px solid red;
+}
+
+.div-formgenerator input[type=checkbox]{
+	left: 0px !important;
+    opacity: 1 !important;
+	min-height: 30px;
+    margin-left: 10px;
+}
+
+.external-form-generator, .external-form-generator .col-sm-12{
+	padding-left: 0px;
+}
+
+.card .btn-circle{
+	color: white;
+}
+
+.modal-dialog .btn-success{
+	color: white;
+}
+
+.v-data-table__wrapper .mdi-pencil{
+	color: #26c6da;
+}
+
+.v-data-table__wrapper .mdi-delete{
+	color: #fc4b6c;
+}
+
+
+.spinner{
+	text-align: center;
+	margin-top: 500px;
+}
+
+.loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+
+  margin: 0 auto;
+  margin-top: 200px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+select{
+	-webkit-appearance: listbox !important;
+    -moz-appearance: listbox !important;
+}
+
+@media (max-width: 500px) {
+
+	.div-formgenerator{
+		padding-left: 20px;
+    	padding-right: 20px;
+	}
+
+    .div-formgenerator .text-right{
+		text-align: left !important;
+	}
+
+	.contact-box .add-ct-btn{
+		left: 40px !important;
+		right: none;
+	}
+}
+
+@media (max-width: 450px) {
+    .card{
+		width: 350px;
+	}
+	
+}
+
+
+.edit-detail-button{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.label-filter{
+	font-size: 12px;
+}
+
+.filter-text{
+	margin-top: 20px;
+}

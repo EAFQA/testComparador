@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+      <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-M46QVDW');</script>
+<!-- End Google Tag Manager -->
+
+
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Comparador de consórcio</title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.ico" rel="icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="css/todos.css" />
+  <link rel="stylesheet" type="text/css" href="css/products.css" />
+
+  <!-- =======================================================
+  * Template Name: Day - v2.1.0
+  * Template URL: https://bootstrapmade.com/day-multipurpose-html-template-for-free/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-176526987-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-176526987-1');
+</script>
+
+</head>   
+
+<body>
+
+      <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M46QVDW"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+  <div id="localScope">
+      <!-- ======= Top Bar ======= -->
+      <div id="topbar" class="d-none d-lg-flex align-items-center fixed-top ">
+        <div class="container d-flex">
+          <div class="contact-info mr-auto">
+            <i class="icofont-envelope"></i> <a href="mailto:contato@comparadordeconsorcio.com.br">contato@comparadordeconsorcio.com.br</a>
+            
+          </div>
+          <div class="social-links">
+
+            <!--
+            <a href="#" class="twitter"><i class="icofont-twitter"></i></a> -->
+            <a 
+                target="_blank"
+                href="https://www.facebook.com/investimentosdream" class="facebook"><i class="icofont-facebook"></i></a>
+            <a 
+                target="_blank"
+                href="https://www.instagram.com/dreaminvestimentos/" class="instagram"><i class="icofont-instagram"></i></a>
+            <!-- <a href="#" class="skype"><i class="icofont-skype"></i></a> -->
+            <a 
+                target="_blank"
+                href="https://www.linkedin.com/company/dream-investimentos/" class="linkedin"><i class="icofont-linkedin"></i></i></a>
+
+            <a 
+                target="_blank"
+                href="https://www.youtube.com/c/DreamInvestimentos" class="youtube"><i class="icofont-youtube"></i></i></a>
+
+
+            <a 
+                target="_blank"
+                href="#" class="youtube">
+                    <img src="img/Logo Dreamvb.png" class="logo-dream" />
+                </a>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- ======= Header ======= -->
+      <header id="header" class="fixed-top ">
+        <div class="container d-flex align-items-center">
+
+          <h1 class="logo mr-auto">
+              <a href="index.html">
+
+                  <img src="img/LOGO COMPARADOR 3.png" alt="logo" />
+              </a>
+          </h1>
+          <!-- Uncomment below if you prefer to use an image logo -->
+          <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+          <nav class="nav-menu d-none d-lg-block">
+            <ul>
+              <li class="active"><a href="index.html">Comparador</a></li>
+              <li><a href="ligacao.html">Solicitar ligação</a></li>
+              <li><a href="visita.html">Agendar visita</a></li>
+              <li><a href="#contact">Blog</a></li>
+             
+
+            </ul>
+          </nav><!-- .nav-menu -->
+
+        </div>
+      </header><!-- End Header -->
+
+      
+      <main id="main">
+
+        
+        <section 
+          v-if="vm.showSimulator"
+          id="comparador" class="comparador-consorcio">
+          <div class="comparador-title">
+              <span class="bold">COMPARE CONSÓRCIOS AGORA</span>
+          </div> 
+          <div  
+            v-if="vm.showRange"
+            class="row comparador-row">
+              <div class="col-sm-12 col-range" 
+                style="
+                    text-align: left;
+                    padding-right: 50px;">
+                    
+                      <label style="
+                          text-align: left;
+                          padding-left: 20px;
+                          padding-top: 30px;" 
+                          class="color-green bold">TIPO DO BEM</label> 
+
+
+                      <select 
+                          v-model="vm.model.category"
+                          class="form-control">
+                            <option v-for="category in vm.categories" v-bind:value="category._id"> {{ category.name }}</option>
+                      </select>  
+              </div>
+      
+              <div class="col-sm-12">
+      
+                  <div class="row" 
+                      style="text-align: left;
+                      padding-left: 25px;
+                      margin-bottom: 10px;">
+                      
+                      <div class="col-sm-6">
+                          <input 
+                              v-model="vm.model.optionsimulador"
+                              class="input-sm" checked 
+                              type="radio" 
+                              value="B"
+                              name="optionsimulador"> <span class="bold">VALOR DO BEM</span>
+                      </div>
+      
+                      <div class="col-sm-6">
+                          <input
+                              v-model="vm.model.optionsimulador" 
+                              type="radio" 
+                              value="P"
+                              name="optionsimulador"> <span class="bold">VALOR DA PARCELA</span>
+                      </div>
+                </div>
+              </div>
+      
+              <div class="col-sm-12 col-range" 
+                    style="text-align: left;
+                    padding-left: 30px;
+                    padding-right: 30px;
+                    padding-left: 40px;">
+
+                    <label> <span class="bold"></span></label> 
+
+                    <money 
+                        v-if="vm.model.optionsimulador == 'B' "
+                        readonly="readonly" v-model="vm.model.endrangevalue" class="form-control money-mask greather-text" v-bind="money"></money> 
+
+                    <money 
+                        v-if="vm.model.optionsimulador == 'P' "
+                        readonly="readonly" v-model="vm.model.parcelaendrangevalue" class="form-control money-mask greather-text" v-bind="money"></money> 
+
+                    <!--
+                    <label class="color-green label-range"> R$ {{ vm.model.endrangevalue }} </label> 
+                    -->
+
+                    <input 
+                        v-if="vm.model.optionsimulador == 'P' "
+                        min="100" max="30000"  step="100"
+                        type="range" 
+                        v-model="vm.model.parcelaendrangevalue"> 
+
+
+                    <input 
+                        v-if="vm.model.optionsimulador == 'B' "
+                        min="5000" max="750000"  step="5000"
+                        type="range" 
+                        v-model="vm.model.endrangevalue"> 
+
+              </div>  
+
+
+              <div class="col-sm-12">
+
+                  <!--
+                  <p class="receber-ofertas">
+                      <label class="switch">
+                          <input 
+                              v-model="vm.model.whatsapp"
+                              type="checkbox" > 
+                          <span class="slider round"></span>
+                      </label>
+                      Desejo Receber Informações por Whatsapp <br>
+                  </p>  -->
+
+                  <button 
+                      v-on:click="onlyRedirect( vm.model )"
+                      class="form-control compare">Ver resultados</button>
+              </div>
+          </div>
+
+          <div 
+              v-if="vm.showContact"
+              id="dados-contato" class="row">
+              <div class="col-sm-12">
+                  <label>Nome</label>
+
+                  <input
+                      v-model="vm.model.name"
+                      required="required"
+                      type="text" class="form-control" />
+              </div>
+
+              <div class="col-sm-12">
+                  <label>E-mail</label>
+
+                  <input 
+                      v-model="vm.model.email"
+                      required="required"
+                      type="text" class="form-control" />
+              </div>
+
+              <div class="col-sm-6">
+                  <label>Celular</label>
+
+                  <input 
+                      required="required"
+                      v-model="vm.model.cellphone"
+                      v-on:change="saveLead( vm.model )"
+                      type="text" class="form-control" />
+              </div>
+
+              <div class="col-sm-6">
+                  <label>Cidade</label>
+
+                  <input 
+                      v-model="vm.model.city"
+                      type="text" class="form-control" />
+              </div>
+
+              <div class="col-sm-12"> <br />
+                  <button 
+                      v-on:click="onlyRedirect( vm.model )"
+                      class="form-control compare">Ver resultados</button>
+              </div>
+
+          </div>
+        </section>
+
+        <!-- ======= Why Us Section ======= -->
+        <section id="why-us" class="why-us">
+
+          <!--
+          <div class="black-november">
+
+              <section class="banner-black">
+                <div class="container position-relative" data-aos="fade-up" data-aos-delay="500">
+                  <h1>Boas Festas</h1>
+                  <h2>Desejamos a todos boas festas! 
+                    <br />Querendo planejar a sua conquista para 2021? 
+                    <br />Conte conosco</h2>
+                </div>
+              </section> End Hero 
+          </div>  
+          
+
+          <div class="black-november-mobile">
+              <img src="../../img/black-november-mobile.jfif" />
+          </div>
+          -->
+
+
+          <div 
+              id="selecionado"
+              style="margin-top: 100px;"
+              class="container">
+
+            
+
+            <div 
+                v-if="vm.productfinished == false"
+                class="row row-products">
+                <div class="col-sm-12" style="margin-top: 50px;margin-bottom: 30px;">
+                    <h3> {{ vm.meta.categoryname }}: 
+                          <money readonly="readonly" v-model="vm.meta.credits" class="money-mask" v-bind="money"></money>
+                    </h3> 
+
+                    <button 
+                        v-on:click="toggleSimulator()"
+                        class="btn btn-sm btn-success new-simulate">Nova simulação</button>    
+                </div>
+
+                <div 
+                    v-for="product in vm.products"
+                    data-aos="fade-up" class="col-sm-3 aos-init aos-animate">
+                      <div class="box" style="padding-top: 15px;">
+                          <div style="text-align: right;color: gold;">
+
+                              <svg 
+                                v-if="product.checked == true"
+                                v-on:click="toggleCheck( product )"
+                                width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="
+                                  color: gold;font-size: 22px;">
+                                  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
+                              </svg>
+
+                              <svg 
+                                  v-if="product.checked == false "
+                                  v-on:click="toggleCheck( product )"
+                                  width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                  <path fill-rule="evenodd" d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.523-3.356c.329-.314.158-.888-.283-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767l-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288l1.847-3.658 1.846 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.564.564 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                              </svg>
+
+                          </div>
+
+                          
+                          <img 
+                            v-if="product.company['image-file']"
+                              v-bind:src="'https://www.comparadordeconsorcio.com.br/img/uploads/' + product.company['image-file'].filename"
+                              alt="" class="img-fluid">
+
+                          <h4> {{ product.paymentconditions.name }}</h4>
+                          <h5> 
+                              <money readonly="readonly" v-model="product.credits.credit" class="money-mask align-center" v-bind="fullmoney"></money>
+                              <!-- R$ {{ product.credits.credit.toFixed(2) }} -->
+                          </h5>
+                          <h5> {{ product.duedate }} meses</h5>
+                         
+                         <!--
+                          <h6>Seguro: Sim</h6> 
+                          -->
+
+                          <div v-if="product.paymentconditions.secutiryfunds">
+                              <h6 v-if="product.paymentconditions.secutiryfunds != '0' ">Seguro: Sim</h6>
+                               <h6 v-if="product.paymentconditions.secutiryfunds == '0' ">Seguro: Não</h6>
+                          </div>
+
+                          <div v-if="! product.paymentconditions.secutiryfunds">
+                              <h6>Seguro: Não</h6>
+                          </div>
+
+                          <div v-if="product.paymentconditions.membershipfee">
+                              <h6 v-if="product.paymentconditions.membershipfee != '0' ">Taxa de adesão: Sim</h6>
+                               <h6 v-if="product.paymentconditions.membershipfee == '0' ">Taxa de adesão: Não</h6>
+                          </div>
+
+                          <div v-if="! product.paymentconditions.membershipfee">
+                              <h6>Taxa de adesão: Não</h6>
+                          </div>
+                          
+
+                          <span>R$ {{product.parcela }}</span>
+                          <p></p>
+
+                          <button 
+                              v-on:click="toggleCheck( product )"
+                              class="form-control" style="font-size: 12px;
+                              margin-top: 20px;
+                              margin-bottom: 15px;">
+                              
+                                  <span 
+                                      class="button-span" v-if="product.checked == true">SELECIONADO</span>
+                                  <span 
+                                      class="button-span" v-if="product.checked == false">SELECIONAR</span>
+                              
+                              
+                              </button>
+      
+                          <button 
+                                  v-on:click="callSpecialist( product )"
+                                  class="form-control btn-success" style="font-size: 12px;
+                                  margin-top: 20px;
+                                  margin-bottom: 15px;
+                                  background: #005f61;">SOLICITAR ESPECIALISTA</button>
+              
+                      </div>
+                </div>   
+
+
+            </div>
+
+
+            <div 
+                v-if="vm.productfinished == true"
+                class="row row-messages">
+
+                <div class="col-sm-12">
+                    <h2>Obrigado</h2>
+                    <p>
+                        Um e-mail foi enviado para a nossa equipe. <br />
+                        Em breve um de nossos especialistas entrará em contato.
+                    </p>
+                </div>
+            </div>
+
+            <div 
+                v-if="vm.loadingSimulation == true"
+                class="row row-messages">
+
+                <div class="col-sm-12">
+                    <h2>Aguarde</h2>
+                    <p>
+                        Estamos localizando o melhor consórcio para você <br />
+                    </p>
+                </div>
+            </div>
+
+            <div 
+                v-if="vm.products.length == 0 && vm.loadingSimulation == false"
+                class="row row-messages">
+
+                <div class="col-sm-12">
+                    <h2>Desculpe</h2>
+                    <p>
+                        Não temos nenhum consórcio com os critérios informados <br />
+                        Por favor refine a sua busca.
+                    </p>
+                </div>
+            </div>
+
+
+
+          </div>
+        </section><!-- End Why Us Section -->
+
+        <div class="owl-carousel company-carousel">
+
+                  <img
+                      v-for="employer in vm.employes" 
+                      v-if="employer['image-file']"
+                      
+                      v-bind:src="'https://www.comparadordeconsorcio.com.br/img/uploads/' + employer['image-file'].filename  "
+                      class="img-fluid image-gray" alt="">
+
+        </div>
+
+
+      </main><!-- End #main -->
+
+      <!-- ======= Footer ======= -->
+      <footer id="footer">
+        <div class="footer-top">
+          <div class="container">
+            <div class="row">
+
+              <div class="col-lg-4 col-md-6">
+                <div class="footer-info">
+                  <h3>
+                    <img 
+                          class="logo-footer"
+                          src="img/logo-comparador-branco.png" alt="logo" />
+                  </h3>
+
+                  <p>
+                      O Consórcio é autorizado e fiscalizado pelo Banco Central do Brasil, garantia e segurança total para você.
+                  </p>
+
+                  <br />
+                  
+                  <p>
+                    <!--
+                    A108 Adam Street <br>
+                    NY 535022, USA --><br><br>
+                    <strong>E-mail:</strong> contato@comparadordeconsorcio.com.br<br>
+                  </p>
+
+                  
+                  <div class="social-links mt-3">
+                    <a 
+                      target="_blank"
+                      href="https://www.facebook.com/investimentosdream" 
+                      class="facebook"><i class="bx bxl-facebook"></i></a>
+                    <a 
+                      target="_blank"
+                      href="https://www.instagram.com/dreaminvestimentos/" 
+                      class="instagram"><i class="bx bxl-instagram"></i></a>
+                    <a 
+                      target="_blank"
+                      href="https://www.linkedin.com/company/dream-investimentos/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-4 col-md-6 footer-links">
+                <h4>Links Úteis</h4>
+                <ul>
+                  <li><i class="bx bx-chevron-right"></i> <a href="index.html">Comparador</a></li>
+                  <li><i class="bx bx-chevron-right"></i> <a href="ligacao.html">Solicitar ligação</a></li>
+                  <li><i class="bx bx-chevron-right"></i> <a href="visita.html">Agendar visita</a></li>
+                  <li><i class="bx bx-chevron-right"></i> <a href="#">Blog</a></li>
+                  <li><i class="bx bx-chevron-right"></i> <a href="privacidade.html">Política de Privacidade</a></li>
+                  <li><i class="bx bx-chevron-right"></i> <a href="termos.html">Termos de Uso</a></li>
+                  <li><i class="bx bx-chevron-right"></i> <a href="financeira.html">Políticas Financeiras</a></li>
+
+
+                  <!--
+                  <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+                  -->
+                </ul>
+              </div>
+
+              <!--
+              <div class="col-lg-2 col-md-6 footer-links">
+                <h4>Our Services</h4>
+                <ul>
+                  <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
+                  <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
+                  <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
+                  <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+                  <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+                </ul>
+              </div>
+
+              <div class="col-lg-4 col-md-6 footer-newsletter">
+                <h4>Our Newsletter</h4>
+                <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+                <form action="" method="post">
+                  <input type="email" name="email"><input type="submit" value="Subscribe">
+                </form>
+
+              </div>
+              -->
+
+            </div>
+          </div>
+        </div>
+
+        <div class="container">
+          <div class="copyright">
+            &copy; 2020  <strong><span>Comparador de Consórcio By Dream Investimentos</span></strong>. Todos os direitos reservados
+            <img src="img/Logo Dreamvb.png" class="logo-dream logo-dream-footer" />
+          </div>
+
+          
+        </div>
+      </footer><!-- End Footer -->
+
+      <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+      <div id="preloader"></div>
+  </div>
+  <!-- localScope --> 
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/venobox/venobox.min.js"></script>
+  <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <script src="js/libs/axios-0-19-2.js"></script>
+  <script src="js/libs/vue-2-6-11.js"></script>
+  <script src="js/libs/v-money.js"></script>
+  <script src="js/site.js"></script>
+  <script src="js/products.js"></script>
+</body>
+
+</html>

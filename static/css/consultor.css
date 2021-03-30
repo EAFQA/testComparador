@@ -1,0 +1,92 @@
+
+
+#hero, .reduct-consultor{
+    height: 100vh;
+}
+
+.logo-promoter{
+    border-radius: 100px;
+        max-width: 100%;
+}
+
+.promoter h4{
+    font-size: 14px;
+    color: gray;
+    font-weight: bold;
+}
+
+.email-consultor{
+    font-size: 100%;
+}
+
+.promoter{
+    text-align: center;
+    margin-left: 20px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.promoter-help{
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.promoter-name{
+    font-size: 18px;
+}
+
+.email-consultor{
+    font-size: 14px;
+}
+
+.consultor-cellphone{
+    color: #007bff;
+    font-size: 14px;
+}
+
+.btn-callwhatsapp{
+    background: #005f61;
+    border: 1px solid #005f61;
+    font-size: 10px;
+    margin-left: 15px;
+}
+
+.promoter .facebook{
+    color: #007bff !important;
+}
+
+.promoter .instagram{
+
+}
+
+.promoter .linkedin{
+    color: #007bff !important;
+}
+
+.promoter .whatsapp{
+    color: green !important;
+}
+
+@media (min-width: 1200px){
+    #comparador {
+        top: 70px;
+    }
+}
+
+@media (max-width: 580px){
+    .promoter{
+        text-align: center;
+    }
+
+    .logo-promoter{
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 700px) {
+    #hero, .banner-1 , .banner-2 , .banner-3, .banner-black{
+		height: 50vh;
+	} 
+
+}
+

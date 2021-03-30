@@ -1,0 +1,106 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.header-scrolled{
+    background: rgba(175, 54, 228, 0.6) !important;
+}
+
+.header-scrolled img{
+    height: 50px;
+}
+
+.registration-area .course-form-section {
+    background: rgba(175, 54, 228, 0.9) !important;
+    background: rgb(163, 100, 232) !important;
+}
+
+.popular-course-area, .video-area, .other-feature-area{
+    font-family: 'Poppins' !important;
+}
+
+.owl-carousel .owl-nav{
+    display: none !important;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white !important;
+}
+
+.testi-slider{
+    margin-top: 50px;
+}
+
+.testimonials-area{
+        background: #f2f3f7;
+}
+
+.video-area{
+    background-size: cover;
+}
+
+.popular-course-area{
+        background: #f2f3f7;
+    margin-bottom: 50px;
+}
+
+.home-banner-area{
+    height: 700px;
+}
+
+.home-banner-right{
+    margin-top: 100px;
+}
+
+.feature-item {
+    border-right: 0px !important;
+}
+
+
+
+@media (min-width: 1000px) {
+    .second-feature-col{
+        margin-left: 40px;
+    }
+}
+
+
+@media (max-width: 990px) {
+    .feature-area{
+        margin-top: 400px;
+    }
+}
+
+
+@media (max-width: 490px) {
+    .feature-area{
+        margin-top: 200px;
+    }
+}
+
+@media (min-width: 990px) {
+
+}
+
+@media (max-width: 990px) {
+
+  .header-scrolled{
+      position: relative;
+  }
+
+  .home-banner-left{
+      margin-top: 180px !important;
+  }
+
+  .home-banner-right{
+      margin-bottom: 30px !important;
+  }
+
+  .home-banner-right img {
+	  display: block !important;
+  }
+
+  .justify-content-center h4{
+      margin-bottom: 20px;
+  }
+}

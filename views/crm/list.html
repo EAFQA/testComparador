@@ -1,0 +1,192 @@
+
+
+<div id="table-scope">
+<!-- ============================================================== -->
+                <!-- Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <div class="row page-titles">
+                    <div class="col-md-5 col-8 align-self-center">
+                        <h3 class="text-themecolor"> {{ vm.entitydata.title }} </h3>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                            	<a href="javascript:void(0)"> {{ vm.entitydata.path }} </a>
+                        	</li>
+                            <li class="breadcrumb-item active">Todos os registros</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="col-md-7 col-sm-4 col-xs-12 align-self-center list-div-button">
+
+                        <div class="button-wrapper">
+
+												                            
+                            <button
+                                type="button"
+								v-if="vm.entitydata.showbutton"
+                                v-on:click="vm.methods.openForm( vm.entitydata.formedit )"
+                                class="btn waves-effect waves-light btn-success pull-right"
+                                >Novo</button>
+
+
+                        </div>
+
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                <!-- Row -->
+
+
+                <div class="row row-table-list">
+                	<div class="col-sm-12">
+                		<div id="table-list">
+												<v-card-title>
+        
+													<v-spacer></v-spacer>
+
+													<div 
+														v-if="vm.entitydata.entityname == 'dream_lead' "
+														class="row">
+
+														<div class="col-4">
+
+															<label class="label-filter">Status</label>
+															<select
+																v-model="vm.statusmodel"
+																v-on:change="changeLeadStatus()"
+																class="form-control">
+																<option value="">Nenhuma opção selecionada</option>
+																<option 
+																	v-for="status in vm.statusList"
+																	v-bind:value="status._id">
+																	{{ status.name }}
+																</option>
+															</select>
+														</div>
+
+														<div class="col-8 filter-text">
+															<v-text-field
+																v-model="vm.searchmodel"
+																append-icon="mdi-magnify"
+																label="Buscar"
+																single-line
+																hide-details
+																></v-text-field>
+														</div>
+
+													</div>
+
+													<div
+														v-if="vm.entitydata.entityname != 'dream_lead' ">
+
+														<v-text-field
+																v-model="vm.searchmodel"
+																append-icon="mdi-magnify"
+																label="Buscar"
+																single-line
+																hide-details
+																></v-text-field>
+													</div>
+													
+
+													
+												</v-card-title>
+												<v-data-table
+													v-model="vm.entitydata.selected"
+														:headers="vm.entitydata.headers"
+														:items="vm.entitydata.list"
+														items-per-page="50"
+														:search="vm.searchmodel"
+														single-select="false"
+														disable-sort="true"
+														item-key="id"
+														class="elevation-1"
+													>
+														<template v-slot:top>
+																<v-toolbar flat color="white">
+																	
+																	<v-spacer></v-spacer>
+																</v-toolbar>
+															</template>
+															<template v-slot:item.actions="{ item }">
+
+																<div v-if="item.callespecialist">
+																	<img src="../../img/crm/handsup.png" />
+																</div>
+
+																<button
+																	v-on:click="vm.methods.tableActions.editItem(item)"
+																	class="btn btn-sm btn-success">
+																	Editar
+																</button>
+
+																<button
+																	v-on:click="vm.methods.tableActions.deleteItem(item)"
+																	class="btn btn-sm btn-danger">
+																	Remover
+																</button>
+															</template>
+
+															<template v-slot:item.leadtransfer="{ item }">
+
+																<button
+																	v-on:click="vm.methods.tableActions.transferLead(item)"
+																	class="btn btn-sm btn-success">
+																	Transferir Lead
+																</button>
+
+
+															</template>
+
+													</v-data-table>
+						</div>
+                	</div>
+                </div>
+
+<!-- modal transferência lead -->
+<div 
+   id="modal_transfer" class="modal" tabindex="-1" role="dialog">
+
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title"> Transferência de Lead</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-4">
+						<label>Novo Proprietário</label>
+					</div>
+
+					<div class="col-8">
+						<select
+							v-model="vm.leadowner"
+							class="form-control">
+
+							<option 
+								v-for="userowner in vm.users"
+								v-bind:value="userowner._id">{{ userowner.name }}</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+				<button 
+					v-on:click="vm.methods.transferLeadFn()"
+					type="button" 
+					class="btn btn-success">Confirmar</button>
+			</div>
+			</div>
+		</div>
+</div>
+
+</div>
+

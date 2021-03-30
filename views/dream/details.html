@@ -1,0 +1,243 @@
+
+
+<div class="col-sm-12">
+    <div class="row">
+        <!-- init details -->
+                    <div 
+                        v-for="detail in vm.formdata.details"
+                        v-bind:class="detail.size">
+
+                        <div class="card">
+
+                            <!-- init detail header -->
+                            <div class="card-block bg-primary">
+                                <h4 class="text-white card-title">{{ detail.title }} </h4>
+                                <h6 class="card-subtitle text-white m-b-0 op-5"> {{ detail.description }} </h6>
+                            </div>
+                            <!-- end detail header -->
+
+                            <!-- init template without-button -->
+                            <div class="card-block without-button" v-if="detail.type == 'without-button' ">
+                                    <div class="message-box contact-box">
+                                        <h2 class="add-ct-btn">
+                                            <button 
+                                                v-on:click="vm.methods.openModal( detail, detail.modalid )"
+                                                type="button" 
+                                                class="btn btn-circle btn-lg btn-success waves-effect waves-dark">+</button></h2>
+                                        <div class="message-widget task-widget">
+
+                                            <a 
+                                                v-on:click="vm.methods.openModal( detail, detail.modalid, record )"
+                                                v-for="record in detail.records"
+                                                href="#">
+
+                                                <div class="mail-contnet">
+                                                    <h5> {{ record.title }} </h5> 
+                                                    <span class="mail-desc"> {{ record.description }} </span> <br />
+                                                    <span 
+                                                        v-for=" (name, index ) in record.content "
+                                                        class="mail-desc ticket-mail-header">
+                                                            <strong>{{ index }}</strong> {{ name }} <br /></span>
+                                                    </span>
+                                                </div>
+                                            </a>
+                                            
+                                        </div>
+                                    </div>
+                            </div>
+                            <!-- end template without-button -->
+
+                            <!-- inicio template with-button -->
+                            <div class="card-block" v-if="detail.type == 'with-button' ">
+                                <div class="message-box contact-box">
+                                    <h2 class="add-ct-btn">
+                                        <button 
+                                            v-on:click="vm.methods.openModal( detail, detail.modalid )"
+                                            type="button" 
+                                            class="btn btn-circle btn-lg btn-success waves-effect waves-dark">+</button></h2>
+                                    <div class="message-widget contact-widget email-widget">
+                                            <a 
+                                                v-for="record in detail.records"
+                                                href="#">
+                                                    <div class="user-img" v-if="record.image">
+                                                        <img v-bind:src="record.image" alt="user" class="img-circle"> <span class="profile-status online pull-right"></span> </div>
+                                                    <div class="mail-contnet">
+                                                        <h5> {{ record.title }}</h5> 
+
+                                                        <br />
+                                                        <p>
+
+                                                            <span 
+                                                                v-for=" (name, index ) in record.content "
+                                                                class="mail-desc ticket-mail-header">
+                                                                    <strong>{{ index }}</strong> {{ name }} <br /></span>
+                                                            </span>
+                                                            <span class="mail-desc ticket-message-email"> {{ record.description }} </span><br />
+                                                        </p>
+
+                                                        <div 
+                                                            v-if="record.id != 0"
+                                                            v-on:click="vm.methods.openModal( detail, detail.modalid, record )"
+                                                            class="email-view-action">
+                                                            <button class="btn btn-success">Visualizar</button>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                    <!-- mail content -->
+                                            </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end template with-button -->
+
+                            <!-- inicio template basic -->
+                            <div class="card-block" v-if="detail.type == 'basic' "> 
+                                <div class="message-box contact-box">
+                                    <h2 class="add-ct-btn">
+                                        <button 
+                                            v-on:click="vm.methods.openModal( detail, detail.modalid )"
+                                            type="button" 
+                                            class="btn btn-circle btn-lg btn-success waves-effect waves-dark">+</button></h2>
+                                    <div class="message-widget contact-widget email-widget">
+                                        <v-card-title>
+                                            <v-spacer></v-spacer>
+                                            <v-text-field
+                                            v-model="detail.searchmodel"
+                                            append-icon="mdi-magnify"
+                                            label="Buscar"
+                                            single-line
+                                            hide-details
+                                            ></v-text-field>
+                                        </v-card-title>
+                                        <v-data-table
+                                            v-model="detail.selected"
+                                                :headers="detail.headers"
+                                                :items="detail.list"
+                                                items-per-page="5"
+                                                :search="detail.searchmodel"
+                                                single-select="false"
+                                                disable-sort="true"
+                                                item-key="name"
+                                                class="elevation-1"
+                                            >
+                                                <template v-slot:top>
+                                                        <v-toolbar flat color="white">
+                                                            
+                                                            <v-spacer></v-spacer>
+                                                        </v-toolbar>
+                                                 </template>
+                                                 <template v-slot:item.actions="{ item }">
+                                                    <button
+                                                        v-on:click="vm.methods.tableActions.modalEdit(item, detail.modalid, detail.entityname, detail )"
+                                                        class="btn btn-sm btn-success edit-detail-button">
+                                                        Editar
+                                                    </button>
+
+                                                    <button
+                                                        v-on:click="vm.methods.tableActions.modalDelete(item, detail.entityname, vm.formdata.entityname, vm.formdata.primary.model.id )"
+                                                        class="btn btn-sm btn-danger">
+                                                        Remover
+                                                    </button>
+                                                  </template>
+                                        </v-data-table>
+                                        <!-- v data table -->
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end template basic -->
+
+                            <!-- inicio template basic -->
+                            <div class="card-block" v-if="detail.type == 'nobutton' ">
+                                <div class="message-box contact-box">
+                                    <h2 class="add-ct-btn">
+                                        </h2>
+                                    <div class="message-widget contact-widget email-widget">
+                                        <v-card-title>
+                                            <v-spacer></v-spacer>
+                                            <v-text-field
+                                            v-model="detail.searchmodel"
+                                            append-icon="mdi-magnify"
+                                            label="Buscar"
+                                            single-line
+                                            hide-details
+                                            ></v-text-field>
+                                        </v-card-title>
+                                        <v-data-table
+                                            v-model="detail.selected"
+                                                :headers="detail.headers"
+                                                :items="detail.list"
+                                                items-per-page="5"
+                                                :search="detail.searchmodel"
+                                                single-select="false"
+                                                disable-sort="true"
+                                                item-key="name"
+                                                class="elevation-1"
+                                            >
+                                                <template v-slot:top>
+                                                        <v-toolbar flat color="white">
+                                                            
+                                                            <v-spacer></v-spacer>
+                                                        </v-toolbar>
+                                                 </template>
+                                                 <template v-slot:item.actions="{ item }">
+                                                    <v-icon
+                                                            small
+                                                            class="mr-2 edit-button"
+                                                            @click="vm.methods.tableActions.modalEdit(item, detail.modalid, detail.entityname, detail )"
+                                                            >
+                                                            mdi-pencil
+                                                    </v-icon>
+                                                    <v-icon
+                                                            class="remove-button"
+                                                            small
+                                                            @click="vm.methods.tableActions.modalDelete(item, detail.entityname, vm.formdata.entityname, vm.formdata.primary.model.id )"
+                                                            >
+                                                            mdi-delete
+                                                    </v-icon>
+                                                  </template>
+                                        </v-data-table>
+                                        <!-- v data table -->
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end template basic -->
+
+                        </div>
+                        <!-- end div card -->
+
+                        <!-- modal basic -->
+                        <div 
+                            v-if="detail.modalid"
+                            v-bind:id="detail.modalid" class="modal" tabindex="-1" role="dialog">
+
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title"> {{ detail.modaltitle }}</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <formgenerator 
+                                            v-bind:message="message"
+                                            v-bind:vm="vm"
+                                            v-bind:schema="detail.schema"
+                                            v-bind:model="detail.model"></formgenerator>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                        <button 
+                                            v-on:click="vm.methods.saveModal( detail, detail.entityname, detail.formback, detail.schema, detail.modalid, vm.formdata.entityname  )"
+                                            type="button" 
+                                            class="btn btn-success">Salvar</button>
+                                    </div>
+                                    </div>
+                                </div>
+                        </div>
+                        <!-- end modal basic -->
+
+                    </div>
+                    <!-- end details -->
+    </div>
+</div>

@@ -1,0 +1,110 @@
+
+<div class="div-formgenerator">
+
+    <div 
+        v-for="field in schema.fields"
+        class="row">
+
+        <div class="col-sm-4 text-right">
+            {{ field.label }}
+        </div>
+        <div class="col-sm-6">
+            
+            <input 
+                v-if="field.type == 'input' "
+                v-model=" model[ field.model ]"
+                v-bind:id="field.id"
+                v-bind:value="model[ field.model ]"
+                v-bind:disabled="field.disabled"
+                v-bind:readonly="field.readonly"
+                v-bind:required="field.required"
+                type="text" 
+                class="form-control" />
+
+
+            <input
+                v-if="field.type == 'checkbox' "
+                v-model=" model[ field.model ]"
+                v-bind:id="field.id"
+                v-bind:value="model[ field.model ]"
+                v-bind:disabled="field.disabled"
+                v-bind:readonly="field.readonly"
+                v-bind:required="field.required"
+                type="checkbox" 
+                class="checkbox" />
+
+            <select
+                v-if=" field.type == 'select' "
+                v-model=" model[ field.model ]"
+                v-bind:id="field.id"
+                v-bind:value="model[ field.model ]"
+                v-bind:disabled="field.disabled"
+                v-bind:readonly="field.readonly"
+                v-bind:required="field.required"
+                class="form-control">
+                
+                <option
+                    v-for="option in field.options"
+                    v-bind:value="option.id"> {{ option.value }}</option>
+            </select>
+
+            <input 
+                v-if="field.type == 'number' "
+                v-model=" model[ field.model ]"
+                v-bind:id="field.id"
+                v-bind:value="model[ field.model ]"
+                v-bind:disabled="field.disabled"
+                v-bind:readonly="field.readonly"
+                v-bind:required="field.required"
+                type="number" 
+                class="form-control" />
+
+
+            <input 
+                v-if="field.type == 'datetime' "
+                v-model=" model[ field.model ]"
+                v-bind:id="field.id"
+                v-bind:value="model[ field.model ]"
+                v-bind:disabled="field.disabled"
+                v-bind:readonly="field.readonly"
+                v-bind:required="field.required"
+                v-on:onload="vm.loadDatetime( field.id )"
+                type="date" 
+                class="form-control" />
+
+            <input 
+                v-if="field.type == 'file' "
+                v-model=" model[ field.model ]"
+                v-bind:id="field.id"
+                v-bind:value="model[ field.model ]"
+                v-bind:disabled="field.disabled"
+                v-bind:readonly="field.readonly"
+                v-bind:required="field.required"
+                v-on:change="app.onchangefile( $event.target.name, $event.target.files, model, field.model )"
+                type="file" 
+                class="form-control" />
+
+
+            <div
+                v-if="field.type == 'file' && model[ field.model + '-file'] ">
+
+                <img 
+                    style="height: 100px;"
+                    v-bind:src="'../../img/uploads/' + model[ field.model + '-file' ].filename ">
+            </div>
+                
+
+            <textarea 
+                v-if="field.type == 'textarea' "
+                v-model=" model[ field.model ]"
+                v-bind:id="field.id"
+                v-bind:value="model[ field.model ]"
+                v-bind:disabled="field.disabled"
+                v-bind:readonly="field.readonly"
+                v-bind:required="field.required" 
+                class="form-control">{{ model[ field.model ] }}</textarea>
+
+        </div>
+    </div>
+    <!-- end row -->
+</div>

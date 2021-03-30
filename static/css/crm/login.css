@@ -1,0 +1,41 @@
+
+
+body{
+    background: #f2f2f2;
+}
+
+.form-login{
+	width: 500px;
+	margin: 0 auto;
+}
+
+.col-login{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.logo-login img{
+    width: 250px;
+}
+
+.col-button{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.row-user{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.label-username label{
+    float: right;
+}
+
+
+@media (max-width: 500px) {
+    .label-username label{
+        float: left;
+    }
+}
